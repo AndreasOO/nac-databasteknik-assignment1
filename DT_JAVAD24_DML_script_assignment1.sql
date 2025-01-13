@@ -67,7 +67,16 @@ HAVING `total_purchased_price_area`>1000;
 
 
 -- Skapa en topp-5 lista av de mest sålda produkterna. 
-
+SELECT `prod`.`name` AS `product_name`, COUNT(`shop_item`.`product_id`) AS `total_sold_units_product` FROM `shop_db`.`orders` AS `ord`
+INNER JOIN `shop_db`.`order_items` AS `ord_item`
+			ON `ord`.`id`=`ord_item`.`order_id`
+INNER JOIN `shop_db`.`shop_items` AS `shop_item`
+			ON `ord_item`.`shop_item_id` = `shop_item`.`id`
+INNER JOIN `shop_db`.`products` AS `prod`
+			ON `shop_item`.`product_id` = `prod`.`id`
+GROUP BY `prod`.`id`
+ORDER BY `total_sold_units_product` DESC
+LIMIT 5;           
 
 -- Vilken månad hade du den största försäljningen? (det måste finnas data som anger försäljning för mer än en månad i databasen för att visa att frågan är korrekt formulerad)
 
