@@ -97,6 +97,7 @@ CREATE TABLE `shipping_adresses` ( `id` INT NOT NULL AUTO_INCREMENT,
 DROP TABLE IF EXISTS `customers`;
 CREATE TABLE `customers` ( `id` INT NOT NULL AUTO_INCREMENT,
 							`email` VARCHAR(55) NOT NULL,
+                            `name` VARCHAR(255) NOT NULL,
 						    PRIMARY KEY (`id`)
 						  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1; 
                           
@@ -135,11 +136,11 @@ INSERT INTO `shop_db`.`brands` (`name`) VALUES ('Acne');
 
 INSERT INTO `shop_db`.`product_types` (`name`) VALUES ('Shoes');
                       
-INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Bolt Runner', 500, 1, 1);
+INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Lazy Sunday', 500, 1, 1);
 INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Crazy Feet', 600, 2, 1);
 INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Goblin Mode', 900, 1, 1);
 INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Trackmaster', 1200, 4, 1);
-INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Lazy Sunday', 500, 3, 1);
+INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Bolt Runner', 500, 3, 1);
 INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Little Feet', 350, 2, 1);
 INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Blaster', 1900, 2, 1);
 INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`) VALUES ('Heavies', 2500, 1, 1);
@@ -148,7 +149,7 @@ INSERT INTO `shop_db`.`products` (`name`, `price`, `brand_id`, `product_type_id`
 
 
 
-INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Sports shoes');
+INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Sandals');
 INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Running shoes');
 INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Ladies shoes');
 INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Men\'s shoes');
@@ -175,7 +176,7 @@ INSERT INTO `shop_db`.`products_categories` (`product_id`, `category_id`) VALUES
 
 
 
-INSERT INTO `shop_db`.`specifications` (`color`, `size`) VALUES ('Black', 39);           
+INSERT INTO `shop_db`.`specifications` (`color`, `size`) VALUES ('Black', 38);           
 INSERT INTO `shop_db`.`specifications` (`color`, `size`) VALUES ('Black', 40);  
 INSERT INTO `shop_db`.`specifications` (`color`, `size`) VALUES ('Green', 39);  
 INSERT INTO `shop_db`.`specifications` (`color`, `size`) VALUES ('White', 39);  
@@ -233,12 +234,12 @@ INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (10111, 
 INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (20111, 'Falaffelgatan 56');     
 INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (40231, 'Fiskavenyn 1');                               
 
-INSERT INTO `shop_db`.`customers` (`email`) VALUES ('fake@email.com');
-INSERT INTO `shop_db`.`customers` (`email`) VALUES ('no@person.com');
-INSERT INTO `shop_db`.`customers` (`email`) VALUES ('jane@doe@mail.com');
-INSERT INTO `shop_db`.`customers` (`email`) VALUES ('test@person.com');
-INSERT INTO `shop_db`.`customers` (`email`) VALUES ('snabba@gubben.com');
-INSERT INTO `shop_db`.`customers` (`email`) VALUES ('shopaholic@help.nu');
+INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('fake@email.com', 'Kenny Klåpare');
+INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('no@person.com', 'Frida Filur');
+INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('jane@doe@mail.com', 'Jane Doe');
+INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('test@person.com', 'Malin Testsson');
+INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('snabba@gubben.com', 'Bengt Sladdis');
+INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('shopaholic@help.nu', 'Urban Köpsson');
 
 
 
