@@ -35,7 +35,7 @@ GROUP BY `cat`.`id`;
 
         
 -- Skapa en kundlista med den totala summan pengar som varje kund har handlat för. Kundens för- och efternamn, samt det totala värdet som varje person har shoppats för, skall visas.
-SELECT `cst`.`name` AS `customer_name`, SUM(`prod`.`price`) AS total_purchased_price FROM `shop_db`.`orders` AS `ord`
+SELECT `cst`.`name` AS `customer_name`, SUM(`prod`.`price`) AS `total_purchased_price_customer` FROM `shop_db`.`orders` AS `ord`
 INNER JOIN `shop_db`.`customers` AS `cst`
 			ON `ord`.`customer_id` = `cst`.`id`
 INNER JOIN `shop_db`.`order_items` AS `ord_item`
@@ -48,10 +48,25 @@ GROUP BY `cst`.`id`;
 
 -- Skriv ut en lista på det totala beställningsvärdet per ort där beställningsvärdet är större än 1000 kr. Ortnamn och värde ska visas. 
 -- forts. (det måste finnas orter i databasen där det har handlats för mindre än 1000 kr för att visa att frågan är korrekt formulerad)
-
+SELECT `area`.`name` AS `area_name`, SUM(`prod`.`price`) AS `total_purchades_price_area` FROM `shop_db`.`orders` AS `ord`
+INNER JOIN `shop_db`.`shipping_adresses` as `adr`
+			ON `ord`.`shipping_adress_id` = `adr`.`id`
+INNER JOIN `shop_db`.`zip_codes` AS `zip`
+			ON `adr`.`zip_code` = `zip`.`zip_code`
+INNER JOIN `shop_db`.`areas` AS `area`
+			ON `zip`.`area_id` = `area`.`id`
+INNER JOIN `shop_db`.`order_items` AS `ord_item`
+			ON `ord`.`id`=`ord_item`.`order_id`
+INNER JOIN `shop_db`.`shop_items` AS `shop_item`
+			ON `ord_item`.`shop_item_id` = `shop_item`.`id`
+INNER JOIN `shop_db`.`products` AS `prod`
+			ON `shop_item`.`product_id` = `prod`.`id`
+GROUP BY `area`.`id`;            
 
 -- Skapa en topp-5 lista av de mest sålda produkterna. 
 
+
+-- Vilken månad hade du den största försäljningen? (det måste finnas data som anger försäljning för mer än en månad i databasen för att visa att frågan är korrekt formulerad)
 
 
 -- TEST
