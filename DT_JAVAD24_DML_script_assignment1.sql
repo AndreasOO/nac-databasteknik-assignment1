@@ -27,18 +27,31 @@ GROUP BY `cst`.`id`;
 
 
 -- Lista antalet produkter per kategori. Listningen ska innehålla kategori-namn och antalet produkter.
-SELECT `cat`.`name`, COUNT(`prod_cat_junc`.`category_id`) AS `num_products`  FROM `shop_db`.`products_categories` AS `prod_cat_junc`
-INNER JOIN `shop_db`.`categories` as `cat`
+SELECT `cat`.`name` AS `category_name`, COUNT(`prod_cat_junc`.`category_id`) AS `num_products`  FROM `shop_db`.`products_categories` AS `prod_cat_junc`
+INNER JOIN `shop_db`.`categories` AS `cat`
 			ON `prod_cat_junc`.`category_id`=`cat`.`id`    
 GROUP BY `cat`.`id`;    
 
 
         
 -- Skapa en kundlista med den totala summan pengar som varje kund har handlat för. Kundens för- och efternamn, samt det totala värdet som varje person har shoppats för, skall visas.
-
+SELECT `cst`.`name` AS `customer_name`, SUM(`prod`.`price`) AS total_purchased_price FROM `shop_db`.`orders` AS `ord`
+INNER JOIN `shop_db`.`customers` AS `cst`
+			ON `ord`.`customer_id` = `cst`.`id`
+INNER JOIN `shop_db`.`order_items` AS `ord_item`
+			ON `ord`.`id`=`ord_item`.`order_id`
+INNER JOIN `shop_db`.`shop_items` AS `shop_item`
+			ON `ord_item`.`shop_item_id` = `shop_item`.`id`
+INNER JOIN `shop_db`.`products` AS `prod`
+			ON `shop_item`.`product_id` = `prod`.`id`
+GROUP BY `cst`.`id`;            
 
 -- Skriv ut en lista på det totala beställningsvärdet per ort där beställningsvärdet är större än 1000 kr. Ortnamn och värde ska visas. 
 -- forts. (det måste finnas orter i databasen där det har handlats för mindre än 1000 kr för att visa att frågan är korrekt formulerad)
 
 
 -- Skapa en topp-5 lista av de mest sålda produkterna. 
+
+
+
+-- TEST
