@@ -218,6 +218,7 @@ INSERT INTO `shop_db`.`areas`(`name`) VALUES ('Malmö');
 INSERT INTO `shop_db`.`areas`(`name`) VALUES ('Stockholm');
 INSERT INTO `shop_db`.`areas`(`name`) VALUES ('Göteborg');
 INSERT INTO `shop_db`.`areas`(`name`) VALUES ('Lund');
+INSERT INTO `shop_db`.`areas`(`name`) VALUES ('Kalix');
 
 
 INSERT INTO `shop_db`.`zip_codes` (`zip_code`, `area_id`) VALUES (22288, 4);
@@ -226,13 +227,15 @@ INSERT INTO `shop_db`.`zip_codes` (`zip_code`, `area_id`) VALUES (10222, 2);
 INSERT INTO `shop_db`.`zip_codes` (`zip_code`, `area_id`) VALUES (10111, 2);
 INSERT INTO `shop_db`.`zip_codes` (`zip_code`, `area_id`) VALUES (20111, 1);
 INSERT INTO `shop_db`.`zip_codes` (`zip_code`, `area_id`) VALUES (40231, 3);
+INSERT INTO `shop_db`.`zip_codes` (`zip_code`, `area_id`) VALUES (95292, 5);
 
 INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (22288, 'Låtsasgatan 11');
 INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (10358, 'Hittepåvägen 21');     
 INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (10222, 'Vasavägen 34');                      
 INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (10111, 'Storstadsidyllen 8');     
 INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (20111, 'Falaffelgatan 56');     
-INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (40231, 'Fiskavenyn 1');                               
+INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (40231, 'Fiskavenyn 1');      
+INSERT INTO `shop_db`.`shipping_adresses` (`zip_code`, `street`) VALUES (95292, 'Ekonomivägen 99');                               
 
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('fake@email.com', 'Kenny Klåpare');
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('no@person.com', 'Frida Filur');
@@ -240,22 +243,24 @@ INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('jane@doe@mail.com',
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('test@person.com', 'Malin Testsson');
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('snabba@gubben.com', 'Bengt Sladdis');
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('shopaholic@help.nu', 'Urban Köpsson');
+INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('muddling@through.nu', 'Ulf Kämpe');
 
 
 
 INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (1, '2024-12-16', 1);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (1, '2024-12-17', 1);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (2, '2024-12-19', 2);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (1, '2024-11-17', 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (2, '2024-11-19', 2);
 INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (3, '2024-12-11', 3);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (3, '2024-12-12', 3);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (3, '2024-12-18', 3);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (3, '2024-09-12', 3);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (3, '2024-10-18', 3);
 INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (4, '2024-12-05', 4);
 INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (4, '2024-12-06', 4);
 INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (4, '2024-12-13', 4);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (5, '2024-12-10', 5);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (5, '2024-08-10', 5);
 INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (5, '2024-12-11', 5);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (6, '2024-12-13', 6);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (6, '2024-07-13', 6);
 INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (6, '2024-12-14', 6);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `date`, `shipping_adress_id`) VALUES (7, '2024-12-24', 7);
 
 
 
@@ -287,6 +292,7 @@ INSERT INTO `shop_db`.`order_items` (`shop_item_id`, `order_id`) VALUES (22,11);
 INSERT INTO `shop_db`.`order_items` (`shop_item_id`, `order_id`) VALUES (11,12);
 INSERT INTO `shop_db`.`order_items` (`shop_item_id`, `order_id`) VALUES (23,13);
 INSERT INTO `shop_db`.`order_items` (`shop_item_id`, `order_id`) VALUES (24,13);
+INSERT INTO `shop_db`.`order_items` (`shop_item_id`, `order_id`) VALUES (5,14);
 
 
 
