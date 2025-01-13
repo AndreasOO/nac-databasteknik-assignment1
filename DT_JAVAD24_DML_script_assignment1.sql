@@ -48,7 +48,7 @@ GROUP BY `cst`.`id`;
 
 -- Skriv ut en lista på det totala beställningsvärdet per ort där beställningsvärdet är större än 1000 kr. Ortnamn och värde ska visas. 
 -- forts. (det måste finnas orter i databasen där det har handlats för mindre än 1000 kr för att visa att frågan är korrekt formulerad)
-SELECT `area`.`name` AS `area_name`, SUM(`prod`.`price`) AS `total_purchades_price_area` FROM `shop_db`.`orders` AS `ord`
+SELECT `area`.`name` AS `area_name`, SUM(`prod`.`price`) AS `total_purchased_price_area` FROM `shop_db`.`orders` AS `ord`
 INNER JOIN `shop_db`.`shipping_adresses` as `adr`
 			ON `ord`.`shipping_adress_id` = `adr`.`id`
 INNER JOIN `shop_db`.`zip_codes` AS `zip`
@@ -60,8 +60,11 @@ INNER JOIN `shop_db`.`order_items` AS `ord_item`
 INNER JOIN `shop_db`.`shop_items` AS `shop_item`
 			ON `ord_item`.`shop_item_id` = `shop_item`.`id`
 INNER JOIN `shop_db`.`products` AS `prod`
-			ON `shop_item`.`product_id` = `prod`.`id`
-GROUP BY `area`.`id`;            
+			ON `shop_item`.`product_id` = `prod`.`id`              
+GROUP BY `area`.`id`
+HAVING `total_purchased_price_area`>1000;            
+
+
 
 -- Skapa en topp-5 lista av de mest sålda produkterna. 
 
