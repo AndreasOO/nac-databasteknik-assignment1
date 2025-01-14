@@ -90,7 +90,7 @@ CREATE TABLE `shipping_adresses` ( `id` INT NOT NULL AUTO_INCREMENT,
 								   PRIMARY KEY (`id`)
 								 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1; 
                
-
+CREATE INDEX `IX_shipping_adress_street` ON `shop_db`.`shipping_adresses`(`street`);
 
                         
                         
@@ -100,7 +100,10 @@ CREATE TABLE `customers` ( `id` INT NOT NULL AUTO_INCREMENT,
                             `name` VARCHAR(255) NOT NULL,
 						    PRIMARY KEY (`id`)
 						  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1; 
-                          
+
+CREATE INDEX `IX_customers_email` ON `shop_db`.`customers`(`email`);                          
+       
+       
        
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` ( `id` INT NOT NULL AUTO_INCREMENT,
@@ -118,11 +121,17 @@ CREATE TABLE `order_items` ( `id` INT NOT NULL AUTO_INCREMENT,
 						  `shop_item_id` INT NOT NULL,
                           `order_id` INT NOT NULL,
                           CONSTRAINT `FK_shop_item_id` FOREIGN KEY (`shop_item_id`) REFERENCES `shop_items` (`id`),
-                          CONSTRAINT `FK_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+                          CONSTRAINT `FK_order_id` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`) ON DELETE CASCADE,
 						  PRIMARY KEY (`id`)
 						  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;         
                           
-                          
+                         
+
+
+
+
+
+                         
 -- ADDING DATA IN TABLES --   
 -- _____________________ --         
 -- _____________________ --         
