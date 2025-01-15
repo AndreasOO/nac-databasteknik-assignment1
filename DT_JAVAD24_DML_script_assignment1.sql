@@ -64,7 +64,8 @@ INNER JOIN `shop_db`.`shop_items` AS `shop_item`
 INNER JOIN `shop_db`.`products` AS `prod`
 			ON `shop_item`.`product_id` = `prod`.`id`              
 GROUP BY `area`.`id`
-HAVING `total_purchased_price_area`>1000;            
+HAVING `total_purchased_price_area`>1000
+ORDER BY `total_purchased_price_area` DESC;            
 
 
 
