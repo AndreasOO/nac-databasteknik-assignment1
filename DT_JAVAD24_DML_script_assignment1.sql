@@ -85,7 +85,7 @@ LIMIT 5;
 
 -- Vilken månad hade du den största försäljningen? (det måste finnas data som anger försäljning för mer än en månad i databasen för att visa att frågan är korrekt formulerad)
 -- Alternativ med totalt belopp sålt för
-SELECT YEAR(`ord`.`date`) AS `year`, MONTH(`ord`.`date`) AS `month`, SUM(`prod`.`price`) AS `total_sold_price_month` FROM `shop_db`.`orders` AS `ord`
+SELECT YEAR(`ord`.`order_date`) AS `year`, MONTH(`ord`.`order_date`) AS `month`, SUM(`prod`.`price`) AS `total_sold_price_month` FROM `shop_db`.`orders` AS `ord`
 INNER JOIN `shop_db`.`order_items` AS `ord_item`
 			ON `ord`.`id`=`ord_item`.`order_id`
 INNER JOIN `shop_db`.`shop_items` AS `shop_item`
@@ -97,7 +97,7 @@ ORDER BY `total_sold_price_month` DESC
 LIMIT 1; 
 
 -- Alternativ med antal varor sålda
-SELECT YEAR(`ord`.`date`) AS `year`, MONTH(`ord`.`date`) AS `month`, COUNT(`shop_item`.`id`) AS `total_sold_unit_month` FROM `shop_db`.`orders` AS `ord`
+SELECT YEAR(`ord`.`order_date`) AS `year`, MONTH(`ord`.`order_date`) AS `month`, COUNT(`shop_item`.`id`) AS `total_sold_unit_month` FROM `shop_db`.`orders` AS `ord`
 INNER JOIN `shop_db`.`order_items` AS `ord_item`
 			ON `ord`.`id`=`ord_item`.`order_id`
 INNER JOIN `shop_db`.`shop_items` AS `shop_item`
