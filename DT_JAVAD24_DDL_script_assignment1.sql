@@ -163,9 +163,9 @@ INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Running shoes');
 INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Ladies shoes');
 INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Men\'s shoes');
 INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Walking shoes');
-INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Children\'s shoes');
-INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Walking shoes');
 INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Slim shoes');
+INSERT INTO `shop_db`.`categories` (`name`) VALUES ('Crocs');
+
 
 INSERT INTO `shop_db`.`products_categories` (`product_id`, `category_id`) VALUES (1,1);
 INSERT INTO `shop_db`.`products_categories` (`product_id`, `category_id`) VALUES (1,2);

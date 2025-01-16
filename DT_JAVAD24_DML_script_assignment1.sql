@@ -28,7 +28,7 @@ GROUP BY `cst`.`id`;
 
 -- Lista antalet produkter per kategori. Listningen ska innehålla kategori-namn och antalet produkter.
 SELECT `cat`.`name` AS `category_name`, COUNT(`prod_cat_junc`.`category_id`) AS `num_products`  FROM `shop_db`.`products_categories` AS `prod_cat_junc`
-INNER JOIN `shop_db`.`categories` AS `cat`
+RIGHT OUTER JOIN `shop_db`.`categories` AS `cat`
 			ON `prod_cat_junc`.`category_id`=`cat`.`id`    
 GROUP BY `cat`.`id`;    
 
