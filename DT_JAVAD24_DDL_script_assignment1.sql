@@ -253,6 +253,7 @@ INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('test@person.com', '
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('snabba@gubben.com', 'Bengt Sladdis');
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('shopaholic@help.nu', 'Urban Köpsson');
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('muddling@through.nu', 'Ulf Kämpe');
+INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('inga@pengar.alls', 'Snåla Jeppe');
 
 
 
