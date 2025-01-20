@@ -27,16 +27,16 @@ GROUP BY `cst`.`id`;
 
 
 -- Lista antalet produkter per kategori. Listningen ska innehålla kategori-namn och antalet produkter.
-SELECT `cat`.`name` AS `category_name`, COUNT(`prod_cat_junc`.`category_id`) AS `num_products`  FROM `shop_db`.`products_categories` AS `prod_cat_junc`
-RIGHT OUTER JOIN `shop_db`.`categories` AS `cat`
+SELECT `cat`.`name` AS `category_name`, COUNT(`prod_cat_junc`.`category_id`) AS `num_products`  FROM `shop_db`.`categories` AS `cat`
+LEFT OUTER JOIN `shop_db`.`products_categories` AS `prod_cat_junc`
 			ON `prod_cat_junc`.`category_id`=`cat`.`id`    
-GROUP BY `cat`.`id`;    
+GROUP BY `cat`.`id`;  
 
 
         
 -- Skapa en kundlista med den totala summan pengar som varje kund har handlat för. Kundens för- och efternamn, samt det totala värdet som varje person har shoppats för, skall visas.
-SELECT `cst`.`name` AS `customer_name`, COALESCE(SUM(`prod`.`price`),0) AS `total_purchased_price_customer` FROM `shop_db`.`orders` AS `ord`
-RIGHT OUTER JOIN `shop_db`.`customers` AS `cst`
+SELECT `cst`.`name` AS `customer_name`, COALESCE(SUM(`prod`.`price`),0) AS `total_purchased_price_customer` FROM `shop_db`.`customers` AS `cst`
+LEFT OUTER JOIN `shop_db`.`orders` AS `ord`
 			ON `ord`.`customer_id` = `cst`.`id`
 LEFT OUTER JOIN `shop_db`.`order_items` AS `ord_item`
 			ON `ord`.`id`=`ord_item`.`order_id`
