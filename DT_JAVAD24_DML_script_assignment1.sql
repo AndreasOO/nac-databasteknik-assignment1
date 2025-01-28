@@ -114,3 +114,5 @@ LIMIT 1;
 SELECT * FROM `shop_db`.`customers` AS `cst`
 INNER JOIN `shop_db`.`passwords` AS `pwd`
 		   ON `cst`.`id` = `pwd`.`user_id`;
+           
+SELECT * FROM `shop_db`.`orders`;

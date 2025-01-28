@@ -114,7 +114,8 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` ( `id` INT NOT NULL AUTO_INCREMENT,
 						  `customer_id` INT NOT NULL,
                           `order_date` DATE NOT NULL,
-                          `shipping_adress_id` INT NOT NULL,
+                          `shipping_adress_id` INT,
+                          `order_completed` TINYINT NOT NULL,
                           CONSTRAINT `FK_customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`),
                           CONSTRAINT `FK_shipping_adress_id` FOREIGN KEY (`shipping_adress_id`) REFERENCES `shipping_adresses` (`id`),
 						  PRIMARY KEY (`id`)
@@ -272,20 +273,20 @@ INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (8, 'test1234');
 
 
 
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (1, '2024-12-16', 1);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (1, '2024-11-17', 1);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (2, '2024-11-19', 2);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (3, '2024-12-11', 3);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (3, '2024-09-12', 3);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (3, '2024-10-18', 3);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (4, '2024-12-05', 4);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (4, '2024-12-06', 4);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (4, '2024-12-13', 4);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (5, '2024-08-10', 5);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (5, '2024-12-11', 5);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (6, '2024-07-13', 6);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (6, '2024-12-14', 6);
-INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`) VALUES (7, '2024-12-24', 7);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (1, '2024-12-16', 1, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (1, '2024-11-17', 1, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (2, '2024-11-19', 2, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (3, '2024-12-11', 3, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (3, '2024-09-12', 3, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (3, '2024-10-18', 3, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (4, '2024-12-05', 4, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (4, '2024-12-06', 4, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (4, '2024-12-13', 4, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (5, '2024-08-10', 5, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (5, '2024-12-11', 5, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (6, '2024-07-13', 6, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (6, '2024-12-14', 6, 1);
+INSERT INTO `shop_db`.`orders` (`customer_id`, `order_date`, `shipping_adress_id`, `order_completed`) VALUES (7, '2024-12-24', 7, 1);
 
 
 
