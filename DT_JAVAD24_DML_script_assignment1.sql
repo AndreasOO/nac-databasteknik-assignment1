@@ -108,3 +108,9 @@ INNER JOIN `shop_db`.`products` AS `prod`
 GROUP BY `month`, `year`
 ORDER BY `total_sold_unit_month` DESC
 LIMIT 1; 
+
+
+
+SELECT * FROM `shop_db`.`customers` AS `cst`
+INNER JOIN `shop_db`.`passwords` AS `pwd`
+		   ON `cst`.`id` = `pwd`.`user_id`;

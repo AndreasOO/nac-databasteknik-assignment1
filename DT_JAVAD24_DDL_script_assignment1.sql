@@ -102,7 +102,12 @@ CREATE TABLE `customers` ( `id` INT NOT NULL AUTO_INCREMENT,
 						  ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1; 
 
 CREATE INDEX `IX_customers_email` ON `shop_db`.`customers`(`email`);                          
-       
+     
+DROP TABLE IF EXISTS `passwords`;
+CREATE TABLE `passwords` ( `user_id` INT NOT NULL,
+                           `password` VARCHAR(80) NOT NULL,
+                           CONSTRAINT `FK_user_id` FOREIGN KEY (`user_id`) REFERENCES `customers` (`id`)
+						 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;      
        
        
 DROP TABLE IF EXISTS `orders`;
@@ -254,6 +259,16 @@ INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('snabba@gubben.com',
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('shopaholic@help.nu', 'Urban Köpsson');
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('muddling@through.nu', 'Ulf Kämpe');
 INSERT INTO `shop_db`.`customers` (`email`, `name`) VALUES ('inga@pengar.alls', 'Snåla Jeppe');
+
+INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (1, 'test1234');
+INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (2, 'test1234');
+INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (3, 'test1234');
+INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (4, 'test1234');
+INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (5, 'test1234');
+INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (6, 'test1234');
+INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (7, 'test1234');
+INSERT INTO `shop_db`.`passwords`(`user_id`, `password`) VALUES (8, 'test1234');
+
 
 
 
